@@ -80,7 +80,7 @@ export default class Index extends BaseComponent {
     }
 
     render() {
-        const {salesUuid} = this.state;
+        const {salesUuid, submiting} = this.state;
         const {partnerDetailData} = this.props.salesState;
         const {classes = ""} = this.props;
         return <div>
@@ -226,6 +226,16 @@ export default class Index extends BaseComponent {
                             </div>}
                         />
                     </ListItem>
+                    <ListItem className={classes.item} onClick={() => !submiting && this.deletePartner()}>
+                        <ListItemText
+                            primary={<div style={{margin: 0, padding: 0, textAlign: 'center', color: 'red'}}>
+                                {
+                                    submiting && <CircularProgress color="secondary" size={14} />
+                                }
+                                删除
+                            </div>}
+                        />
+                    </ListItem>
                 </List>
             </Card>
 
@@ -263,5 +273,19 @@ export default class Index extends BaseComponent {
         const {salesUuid} = this.state;
         this.linkTo(Path.PATH_USER_ELECTRONIC_AGREEMENT, {salesUuid: salesUuid});
     };
+
+    /**
+     * 删除代理商
+     */
+    deletePartner() {
+        const {salesUuid} = this.state;
+        this.alert("确认删除该代理商吗？", "删除代理商", () => {
+            this.setState({submiting: true});
+            this.props.salesState.deletePartner(salesUuid).then(res => {
+                this.notification("删除成功！");
+                setTimeout(() => this.back(), 1500);
+            }).catch(err => this.setState({submiting: false}));
+        }, null, true);
+    }
 
 }

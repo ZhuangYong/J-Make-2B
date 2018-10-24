@@ -61,9 +61,9 @@ export default class PartnerListIndex extends PullRefreshPage {
             <ListItemText style={style.ListItemText}
                           primary={<span>{item.name || item.channelName || "未命名"}<font style={{fontSize: '.8rem', color: '#808080'}}> （{item.deviceCount || 0}台）</font></span>}
             />
-            <ListItemSecondaryAction>
-                <font color="#808080">{item.parentProportions || 0}元</font>
-                <IconButton onClick={() => this.deviceGroupDetail(item)}>
+            <ListItemSecondaryAction style={{fontSize: '.8rem'}}>
+                <font color="#808080">{item.total || 0}元</font>
+                <IconButton style={{width: '2rem'}} onClick={() => this.deviceGroupDetail(item)}>
                     <ArrowForwardIcon color="disabled"/>
                 </IconButton>
             </ListItemSecondaryAction>

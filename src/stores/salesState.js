@@ -2,7 +2,7 @@ import {action, observable} from "mobx";
 import Api from "../utils/api";
 import BaseState from "./baseState";
 
-export default class priceState extends BaseState {
+export default class salesState extends BaseState {
 
     @observable salesPageData = "";
     @observable partnerDetailData = "";
@@ -162,6 +162,17 @@ export default class priceState extends BaseState {
     deleteDeviceGroup(uuid) {
         return this.fetch({
             url: Api.API_PARTNER_GROUP_DELETE + uuid,
+        });
+    }
+
+    /**
+     * 删除代理商
+     * @param salesUuid
+     * @returns {*}
+     */
+    deletePartner(salesUuid) {
+        return this.fetch({
+            url: Api.API_PARTNER_PARTNER_DELETE + salesUuid,
         });
     }
 }

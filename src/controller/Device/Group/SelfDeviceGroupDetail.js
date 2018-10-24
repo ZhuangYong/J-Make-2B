@@ -223,7 +223,7 @@ export default class Index extends BaseComponent {
                 <List className={classes.list}>
                     <ListItem className={classes.item} onClick={() => !submiting && this.deleteGroup()}>
                         <ListItemText
-                            primary={<div style={{margin: 0, padding: 0, textAlign: 'center'}}>
+                            primary={<div style={{margin: 0, padding: 0, textAlign: 'center', color: 'red'}}>
                                 {
                                     submiting && <CircularProgress color="secondary" size={14} />
                                 }
@@ -274,7 +274,7 @@ export default class Index extends BaseComponent {
      */
     deleteGroup() {
         const {deviceGroupDetailData} = this.props.deviceState;
-        this.alert("确认删除？", "", () => {
+        this.alert("确认删除该分组码？", "删除分组", () => {
             this.setState({submiting: true});
             this.props.deviceState.deleteDeviceGroup(deviceGroupDetailData.uuid).then(res => {
                 this.notification("删除成功！");

@@ -108,6 +108,9 @@ export default {
     // 删除子销售方分成比例组
     API_PARTNER_GROUP_DELETE: "/wxback/group/delete/",
 
+    // 删除代理商
+    API_PARTNER_PARTNER_DELETE: "/wxback/sales/delete/",
+
     // 子销售方分成比例组设备列表
     API_SALES_GROUP_DEVICE_LIST: "/wxback/group/deviceList/",
 
