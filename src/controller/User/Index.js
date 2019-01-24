@@ -189,7 +189,7 @@ export default class Index extends BaseComponent {
 
             <Card className={classes.card} style={{marginTop: 16}}>
                 <List className={classes.list}>
-                    {
+                    {/*{
                         loginUserData.type === Const.ROLE.SALES && <ListItem className={classes.item}>
                             <ListItemIcon>
                                 <TryIcon size="1.6rem"/>
@@ -210,7 +210,7 @@ export default class Index extends BaseComponent {
                                 }
                             </ListItemSecondaryAction>
                         </ListItem>
-                    }
+                    }*/}
                     {
                         loginUserData.type === Const.ROLE.SALES && <ListItem className={classes.item} onClick={() => this.linkTo(Path.PATH_ORDER_CASH_APPLY_INDEX)}>
                             <ListItemIcon>
